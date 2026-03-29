@@ -3,7 +3,7 @@
 #  Doctor Appointment Booking System -Saranya's Dental Care
 
 ## Abstract
-The Doctor Appointment System is a web-based application developed to simplify the process of booking and managing medical appointments. It provides a user-friendly interface where users can select a doctor, choose a date and time, and book an appointment بسهولة. The system also allows users to view all booked appointments in a structured table format. This project aims to reduce manual effort and improve efficiency in appointment scheduling.
+The Doctor Appointment System is a web-based application developed to simplify the process of booking and managing medical appointments. It provides a user-friendly interface where users can select a doctor, choose a date and time, and book an appointment . The system also allows users to view all booked appointments in a structured table format. This project aims to reduce manual effort and improve efficiency in appointment scheduling.
 
 ---
 
