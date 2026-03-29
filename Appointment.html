@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body style="background-color: lightpink;">
+
+<h2>Book Appointment</h2>
+
+<select id="doctor">
+    <option>Dr. John</option>
+    <option>Dr. Priya</option>
+    <option>Dr. Mugunthan</option>
+    <option>Dr. Vijay</option>
+</select><br>
+
+<input type="date" id="date"><br>
+<input type="time" id="time"><br>
+
+<button onclick="bookAppointment()">Book</button>
+
+<br><br>
+
+<button onclick="goToView()">View Appointments</button>
+
+<script>
+function bookAppointment() {
+    const data = {
+        doctorName: document.getElementById("doctor").value,
+        appointmentDate: document.getElementById("date").value,
+        appointmentTime: document.getElementById("time").value
+    };
+
+    fetch("http://localhost:8080/book", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(() => {
+        alert("Booked Successfully");
+    });
+}
+
+function goToView() {
+    window.location.href = "view.html";
+}
+</script>
+
+</body>
+</html>

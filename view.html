@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 60%;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background: green;
+            color: white;
+        }
+
+        button {
+            margin: 20px;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Appointments List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<button onclick="goBack()">Back</button>
+
+<script>
+function loadAppointments() {
+    fetch("http://localhost:8080/appointments")
+    .then(res => res.json())
+    .then(data => {
+        let body = document.getElementById("tableBody");
+        body.innerHTML = "";
+
+        data.forEach(app => {
+            if (app.doctorName && app.appointmentDate && app.appointmentTime) {
+
+                let formattedDate = new Date(app.appointmentDate)
+                    .toLocaleDateString("en-IN", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    });
+
+                let formattedTime = new Date("1970-01-01T" + app.appointmentTime)
+                    .toLocaleTimeString("en-IN", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true
+                    });
+
+                let row = `
+                    <tr>
+                        <td>${app.doctorName}</td>
+                        <td>${formattedDate}</td>
+                        <td>${formattedTime}</td>
+                    </tr>
+                `;
+
+                body.innerHTML += row;
+            }
+        });
+    });
+}
+
+function goBack() {
+    window.location.href = "appointment.html";
+}
+
+loadAppointments();
+</script>
+
+</body>
+</html>
