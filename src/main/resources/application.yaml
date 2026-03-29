@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: demo
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/doctor_db
+    username: harini
+    password: "harini@3506@8072"
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    server:
+      port: 8081
