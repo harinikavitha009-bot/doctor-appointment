@@ -47,10 +47,7 @@ Displays all appointments in a table format with proper formatting.
 - Version Control: Git & GitHub  
 
 ---
-
-## Database Design
-The system uses a table named `appointments` to store appointment details.
-
+## **Database Design**
 ```sql
 CREATE TABLE appointments (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -58,25 +55,34 @@ CREATE TABLE appointments (
     appointment_date DATE NOT NULL,
     appointment_time TIME NOT NULL
 );
+```
+## **Working Principle**
+- User opens the application  
+- Selects doctor, date, and time  
+- Data is sent to backend  
+- Stored in MySQL database  
+- Displayed in table format  
 
-Working Principle
-User opens the application
-User selects doctor, date, and time
-Data is sent to backend using API
-Backend stores data in MySQL database
-User can view all appointments in table format
+---
 
-Advantages
-Reduces manual work
-Easy to use
-Fast and efficient
-Organized data storage
+## **Advantages**
+- Reduces manual work  
+- Easy to use  
+- Fast and efficient  
+- Organized data storage  
 
-How to Run
-Start MySQL and create database
-Run Spring Boot application
-Open browser and go to:
-http://localhost:8080
+---
 
-Conclusion
-The Doctor Appointment System demonstrates a simple full-stack application integrating frontend, backend, and database to manage appointments effectively.
+## **How to Run**
+1. Start MySQL and create database  
+2. Run Spring Boot application  
+3. Open browser and go to:  
+   http://localhost:8080  
+
+---
+
+## **Conclusion**
+This project demonstrates a simple full-stack application for managing doctor appointments effectively.
+---
+
+
